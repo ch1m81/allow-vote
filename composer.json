@@ -1,6 +1,6 @@
 {
   "name": "ch1m81/slim3-start-session",
-  "description": "StartSession middleware and helper for Slim framework 3.",
+  "description": "StartSession middleware after login for Slim framework 3.",
   "type": "library",
   "keywords": [
     "slim",
