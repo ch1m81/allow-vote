@@ -1,5 +1,5 @@
 {
-  "name": "ChimbiTheKing/slim3-start-session",
+  "name": "ch1m81/slim3-start-session",
   "description": "StartSession middleware and helper for Slim framework 3.",
   "type": "library",
   "keywords": [
@@ -8,7 +8,7 @@
     "middleware",
     "helper"
   ],
-  "homepage": "https://github.com/ChimbiTheKing/slim3-start-session",
+  "homepage": "https://github.com/ch1m81/slim3-start-session",
   "license": "MIT",
   "authors": [
     {
@@ -19,7 +19,7 @@
     }
   ],
   "support": {
-    "source": "https://github.com/ChimbiTheKing/slim3-start-session.git"
+    "source": "https://github.com/ch1m81/slim3-start-session.git"
   },
   "require": {
     "slim/slim": "^3.0"
