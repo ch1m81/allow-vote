@@ -20,7 +20,7 @@ class SessionStart
     public function __construct($settings = [])
     {
         				
-				$defaults = [
+	$defaults = [
             'lifetime'    => '10 second',
             'path'        => '/',
             'domain'      => null,
@@ -53,17 +53,17 @@ class SessionStart
     public function __invoke(Request $request, Response $response, callable $next)
     {
         
-				$response = $next($request, $response);
-				
-				$statusCode = $response->getStatusCode();
-				
-				$statusMessage = (!empty($response->getHeader('status'))) ? $response->getHeader('status')[0] : false;				
-				
-				if ($statusCode === 200 && $statusMessage === "OK") {
-					$this->startSession();
-				}
-				
-				return $response;
+	$response = $next($request, $response);
+	
+	$statusCode = $response->getStatusCode();
+	
+	$statusMessage = (!empty($response->getHeader('status'))) ? $response->getHeader('status')[0] : false;				
+	
+	if ($statusCode === 200 && $statusMessage === "OK") {
+		$this->startSession();
+	}
+	
+	return $response;
     }
 
     /**
@@ -98,8 +98,6 @@ class SessionStart
 
         session_name($name);
         session_cache_limiter(false);
-        session_start();				
-				
-				//@session_start();
+        session_start();
     }
 }
