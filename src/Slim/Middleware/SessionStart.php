@@ -21,7 +21,7 @@ class SessionStart
     {
         				
 	$defaults = [
-            'lifetime'    => '10 second',
+            'lifetime'    => '30 minutes',
             'path'        => '/',
             'domain'      => null,
             'secure'      => false,
@@ -60,9 +60,10 @@ class SessionStart
 	$statusMessage = (!empty($response->getHeader('status'))) ? $response->getHeader('status')[0] : false;				
 	
 	if ($statusCode === 200 && $statusMessage === "OK") {
+
 		$this->startSession();
 	}
-	
+
 	return $response;
     }
 
@@ -99,5 +100,7 @@ class SessionStart
         session_name($name);
         session_cache_limiter(false);
         session_start();
+	session_regenerate_id( true );
+	$_SESSION['token'] = session_id();
     }
 }
