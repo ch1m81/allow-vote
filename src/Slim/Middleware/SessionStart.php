@@ -152,7 +152,7 @@ class SessionStart
 	*/
 	protected function tryCaptcha($clientHash)  { 					
 		
-		$recaptcha = new \ReCaptcha\ReCaptcha("6LcYMQcUAAAAANa7cTGOpIxhYAR32BH92HEFYYB4");
+		$recaptcha = new \ReCaptcha\ReCaptcha("xxxxxxxx");
 		$resp = $recaptcha->verify($clientHash);
 		
 		// captcha ok? proceed with auth
