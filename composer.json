@@ -1,6 +1,6 @@
 {
-  "name": "ch1m81/slim3-start-session",
-  "description": "StartSession middleware after login for Slim framework 3.",
+  "name": "ch1m81/slim3-is-logged-in",
+  "description": "just check if the user has been logged in.",
   "type": "library",
   "keywords": [
     "slim",
@@ -8,7 +8,7 @@
     "middleware",
     "helper"
   ],
-  "homepage": "https://github.com/ch1m81/slim3-start-session",
+  "homepage": "https://github.com/ch1m81/slim3-is-logged-in",
   "license": "MIT",
   "authors": [
     {
@@ -19,7 +19,7 @@
     }
   ],
   "support": {
-    "source": "https://github.com/ch1m81/slim3-start-session.git"
+    "source": "https://github.com/ch1m81/slim3-is-logged-in.git"
   },
   "require": {
     "slim/slim": "^3.0"
