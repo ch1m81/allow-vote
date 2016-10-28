@@ -21,15 +21,15 @@ class SessionStart
     public function __construct($settings = [])
     {
         				
-				$defaults = [
-            'lifetime'    => '30 minutes',
-            'path'        => '/',
-            'domain'      => null,
-            'secure'      => false,
-            'httponly'    => false,
-            'name'        => 'supportfaq',
-            'autorefresh' => true,
-        ];
+	$defaults = [
+		'lifetime'    => '30 minutes',
+		'path'        => '/',
+		'domain'      => null,
+		'secure'      => false,
+		'httponly'    => false,
+		'name'        => 'xxx',
+		'autorefresh' => true,
+	];
 				
         $settings = array_merge($defaults, $settings);
 
@@ -38,7 +38,7 @@ class SessionStart
         }				
 				
         $this->settings = $settings;
-				$this->isCapthaValid = Array("valid"=>false);
+	$this->isCapthaValid = Array("valid"=>false);
 
         ini_set('session.gc_probability', 0);
         ini_set('session.gc_divisor', 1);
@@ -156,7 +156,7 @@ class SessionStart
 		*/
 		protected function tryCaptcha($clientHash)  { 					
 			
-			$recaptcha = new \ReCaptcha\ReCaptcha("6LfN3wcUAAAAAH_lwU97zVRxjxAZ0xwqh7TrRBh6");
+			$recaptcha = new \ReCaptcha\ReCaptcha("xxxx");
 			$resp = $recaptcha->verify($clientHash);
 			
 			// captcha ok? proceed with auth
