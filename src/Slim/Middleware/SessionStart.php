@@ -21,7 +21,7 @@ class SessionStart
     public function __construct($settings = [])
     {
         				
-		$defaults = [
+				$defaults = [
             'lifetime'    => '30 minutes',
             'path'        => '/',
             'domain'      => null,
@@ -38,7 +38,7 @@ class SessionStart
         }				
 				
         $this->settings = $settings;
-		$this->isCapthaValid = Array("valid"=>false);
+				$this->isCapthaValid = Array("valid"=>false);
 
         ini_set('session.gc_probability', 0);
         ini_set('session.gc_divisor', 1);
@@ -195,16 +195,17 @@ class SessionStart
             $settings['httponly']
         );
 				
-			setcookie("wannabe", "", time()-3600);				
-			unset($_COOKIE["wannabe"]);
-			session_destroy();
+				setcookie("wannabe", "", time()-3600);				
+				unset($_COOKIE["wannabe"]);
+				unset($_COOKIE[$name]);
+				session_destroy();
        
-			session_name($name);
-        	session_cache_limiter(false);
-			session_start();
+				session_name($name);
+        session_cache_limiter(false);
+				session_start();
 				
-			$_SESSION = array(); // reset session
-			$_SESSION['user'] = $userData; // array of user data
-			$_SESSION['token'] = session_id();				
+				$_SESSION = array(); // reset session
+				$_SESSION['user'] = $userData; // array of user data
+				$_SESSION['token'] = session_id();				
     }
 }
