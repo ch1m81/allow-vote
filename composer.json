@@ -1,5 +1,5 @@
 {
-  "name": "ch1m81/has-thumbed",
+  "name": "ch1m81/allow-vote",
   "description": "just check if the user has already thumbeed up or down (thumb-up, thumb-down).",
   "type": "library",
   "keywords": [
@@ -8,7 +8,7 @@
     "middleware",
     "helper"
   ],
-  "homepage": "https://github.com/ch1m81/has-thumbed",
+  "homepage": "https://github.com/ch1m81/allow-vote",
   "license": "MIT",
   "authors": [
     {
@@ -19,7 +19,7 @@
     }
   ],
   "support": {
-    "source": "https://github.com/ch1m81/has-thumbed.git"
+    "source": "https://github.com/ch1m81/allow-vote.git"
   },
   "require": {
     "slim/slim": "^3.0"
