@@ -18,30 +18,8 @@ class IsLoggedIn
      *
      * @param array $settings
      */
-    public function __construct($settings = []) {
-        				
-		$defaults = [
-			'lifetime'    => '30 minutes',
-			'path'        => '/',
-			'domain'      => null,
-			'secure'      => false,
-			'httponly'    => false,
-			'name'        => 'xxx',
-			'autorefresh' => true,
-		];
-
-		$settings = array_merge($defaults, $settings);
-
-		if (is_string($lifetime = $settings['lifetime'])) {
-			$settings['lifetime'] = strtotime($lifetime) - time();
-		}				
-
-		$this->settings = $settings;
-		$this->isCapthaValid = Array("valid"=>false);
-
-        ini_set('session.gc_probability', 0);
-        ini_set('session.gc_divisor', 1);
-        ini_set('session.gc_maxlifetime', 30 * 24 * 60 * 60);
+    public function __construct() {
+			
     }
 
     /**
@@ -54,6 +32,31 @@ class IsLoggedIn
      * @return \Psr\Http\Message\ResponseInterface
      */
     public function __invoke(Request $request, Response $response, callable $next) {
-		
+				
+				$hasVoted = $this->hasVoted ();
+							
+				$request = $request->withAttribute('hasVoted', $hasVoted);			
+				
+				$response = $next($request, $response);	
+				
+				return $response;				
+				
     }
+		
+		private function hasVoted () {	
+					 
+				if (!$token && !isset($_SESSION['token'])) 	return false;
+				
+				if (empty(session_id())) {				
+					session_name("supportfaq");       
+					session_start();
+				}
+			
+				if (isset($_SESSION['token']) && $_SESSION['token'] && $_SESSION['token'] === $token) {					
+					return true;
+				}						
+				
+				return false;
+			
+		}
 }
