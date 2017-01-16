@@ -33,9 +33,11 @@ class allowVote
      */
     public function __invoke(Request $request, Response $response, callable $next) {
 				
-				$hasVoted = $this->hasVoted ();
+				$guideID = $request->getParam('subjectID');	     
+				
+				$allowToVote = $this->allowToVote ($guideID);
 							
-				$request = $request->withAttribute('hasVoted', $hasVoted);			
+				$request = $request->withAttribute('allowVote', $allowToVote);			
 				
 				$response = $next($request, $response);	
 				
@@ -43,20 +45,32 @@ class allowVote
 				
     }
 		
-		private function hasVoted () {	
-					 
-				if (!$token && !isset($_SESSION['token'])) 	return false;
+		private function allowToVote ($guideID) {						 
 				
-				if (empty(session_id())) {				
-					session_name("supportfaq");       
-					session_start();
-				}
+			session_start();
 			
-				if (isset($_SESSION['token']) && $_SESSION['token'] && $_SESSION['token'] === $token) {					
-					return true;
-				}						
+			if (!isset($_SESSION['votedGuides'])) {	
+			
+				$_SESSION['votedGuides'] = Array();
+				$_SESSION['votedGuides'][] = $guideID;
 				
-				return false;
+				return true;
+			
+			}	else {
+				
+				if (in_array($guideID , $_SESSION['votedGuides'])) {					
+					
+					return false;
+					
+				} else {	
+				
+					$_SESSION['votedGuides'][] = $guideID;
+					
+					return true;
+					
+				}
+			}
 			
 		}
 }
+
