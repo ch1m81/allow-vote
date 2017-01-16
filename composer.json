@@ -1,6 +1,6 @@
 {
-  "name": "ch1m81/slim3-is-logged-in",
-  "description": "just check if the user has been logged in.",
+  "name": "ch1m81/hasThumbed",
+  "description": "just check if the user has already thumbeed up or down (thumb-up, thumb-down).",
   "type": "library",
   "keywords": [
     "slim",
@@ -8,7 +8,7 @@
     "middleware",
     "helper"
   ],
-  "homepage": "https://github.com/ch1m81/slim3-is-logged-in",
+  "homepage": "https://github.com/ch1m81/hasThumbed",
   "license": "MIT",
   "authors": [
     {
@@ -19,7 +19,7 @@
     }
   ],
   "support": {
-    "source": "https://github.com/ch1m81/slim3-is-logged-in.git"
+    "source": "https://github.com/ch1m81/hasThumbed.git"
   },
   "require": {
     "slim/slim": "^3.0"
