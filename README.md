@@ -1,1 +1,1 @@
-# slim3-start-session
+# slim3-allow-vote
